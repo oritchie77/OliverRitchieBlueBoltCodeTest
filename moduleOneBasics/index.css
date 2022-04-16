@@ -36,6 +36,8 @@
         border-radius: 5px;
         color: #ffffff;
         font-size: 1.5rem; }
+        .module-one main .card .buttons-container .button:hover {
+          cursor: pointer; }
     .module-one main .card .blue {
       background-color: #0191DE; }
     .module-one main .card .pink {
