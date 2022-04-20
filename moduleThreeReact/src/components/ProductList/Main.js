@@ -6,7 +6,7 @@ const Main = (props) => {
     const productCardData = props.data.collectionByHandle.products.edges
 
     const [cardData, setCardData] = useState(productCardData)
-    const [reverseClick, setReverseClick] = useState(0)
+    const [reverseClick, setReverseClick] = useState(false)
 
     const handelClick = () => {
         props.showCardsByNumber(9)
@@ -18,14 +18,23 @@ const Main = (props) => {
     },[reverseClick])
 
     const reverseOrderHandleClick = () => {
-        setReverseClick(reverseClick + 1)
+        if(reverseClick) {
+            setReverseClick(false)
+        } else {
+            setReverseClick(true)
+        }
+    }
+
+    const orderByPrice = () => {
+        let priceOrder = cardData.sort()
+        console.log(priceOrder.node.title)
     }
 
     return (
         <main>
             <div className="buttonGroup">
                 <button onClick={reverseOrderHandleClick}>Reverse Product Order</button>
-                <button>Price High to Low</button>
+                <button onClick={orderByPrice}>Price High to Low</button>
                 <button>Price Low to High</button>
                 <button onClick={handelClick}>Display 9 products</button>
             </div>
